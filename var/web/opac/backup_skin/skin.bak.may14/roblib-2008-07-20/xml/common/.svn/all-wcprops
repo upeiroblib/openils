@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/repos/evergreen/!svn/ver/57/var/web/opac/skin/roblib/xml/common
+END
+cn_browse.xml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/evergreen/!svn/ver/57/var/web/opac/skin/roblib/xml/common/cn_browse.xml
+END
+js_common.xml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/evergreen/!svn/ver/57/var/web/opac/skin/roblib/xml/common/js_common.xml
+END
+stypes_selector.xml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/evergreen/!svn/ver/57/var/web/opac/skin/roblib/xml/common/stypes_selector.xml
+END
+format_selector.xml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/evergreen/!svn/ver/57/var/web/opac/skin/roblib/xml/common/format_selector.xml
+END
+fonts.xml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/evergreen/!svn/ver/57/var/web/opac/skin/roblib/xml/common/fonts.xml
+END
+searchbar.xml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/evergreen/!svn/ver/57/var/web/opac/skin/roblib/xml/common/searchbar.xml
+END
+css_common.xml
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/evergreen/!svn/ver/57/var/web/opac/skin/roblib/xml/common/css_common.xml
+END
+logo.xml
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/evergreen/!svn/ver/57/var/web/opac/skin/roblib/xml/common/logo.xml
+END
+libselect.xml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/evergreen/!svn/ver/57/var/web/opac/skin/roblib/xml/common/libselect.xml
+END
+orgtree.xml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/evergreen/!svn/ver/57/var/web/opac/skin/roblib/xml/common/orgtree.xml
+END
+login.xml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/evergreen/!svn/ver/57/var/web/opac/skin/roblib/xml/common/login.xml
+END
+statusbar.xml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/evergreen/!svn/ver/57/var/web/opac/skin/roblib/xml/common/statusbar.xml
+END
+holds.xml
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/repos/evergreen/!svn/ver/57/var/web/opac/skin/roblib/xml/common/holds.xml
+END
+sidebar.xml
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/evergreen/!svn/ver/57/var/web/opac/skin/roblib/xml/common/sidebar.xml
+END
+altcanvas.xml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/evergreen/!svn/ver/57/var/web/opac/skin/roblib/xml/common/altcanvas.xml
+END
+ilsevents.xml
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/repos/evergreen/!svn/ver/57/var/web/opac/skin/roblib/xml/common/ilsevents.xml
+END
+tips.xml
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/repos/evergreen/!svn/ver/57/var/web/opac/skin/roblib/xml/common/tips.xml
+END

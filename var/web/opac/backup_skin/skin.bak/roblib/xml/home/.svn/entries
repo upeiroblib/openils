@@ -1,0 +1,54 @@
+8
+
+dir
+9740
+svn://svn.open-ils.org/ILS/branches/rel_1_2_2/Open-ILS/web/opac/skin/default/xml/home
+svn://svn.open-ils.org/ILS
+
+
+
+2007-11-21T18:08:13.611643Z
+8110
+erickson
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+dcc99617-32d9-48b4-a31d-7c20da2025e4
+
+index_body.xml
+file
+
+
+
+
+2008-05-31T01:06:12.000000Z
+db532646f922b2357e48d05d9dbb12c4
+2007-11-21T18:08:13.611643Z
+8110
+erickson
+has-props
+
+homesearch.xml
+file
+
+
+
+
+2008-05-31T01:06:12.000000Z
+6e419950129a892e3ea6901e4fcf95ae
+2007-11-21T18:08:13.611643Z
+8110
+erickson
+has-props
+

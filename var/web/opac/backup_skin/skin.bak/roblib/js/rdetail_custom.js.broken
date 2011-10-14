@@ -1,0 +1,159 @@
+/**
+ *  Custom routines for Robertson Library Evergreen environment.
+ */
+
+function rdetailShowCategories( ) {
+  loadMARCRecord();
+//  loadParser();
+
+
+}
+
+var MARCRequest;
+var transformer;  // The XSL to apply to the MARC record.
+var marctags;
+
+function loadMARCRecord( ) {
+
+  MARCRequest = null;
+
+  if (window.XMLHttpRequest) {
+    // Code for all new browsers
+    MARCRequest = new XMLHttpRequest();
+  } else if ( window.ActiveXObject ) {
+    // Code for IE 5 and 6
+    MARCRequest = new ActiveXObject( "Microsoft.XMLHTTP" );
+  }
+
+  if ( MARCRequest != null ) {
+    MARCRequest.onreadystatechange = marcrec_State_Change;
+    MARCRequest.open( "GET", "/opac/extras/supercat/retrieve/marcxml/record/" + record.doc_id(), true );
+    MARCRequest.send(null);
+  }
+
+}
+
+function marcrec_State_Change() {
+
+  if ( MARCRequest.readyState == 4 ) {
+    // 4 means "loaded"
+    if ( MARCRequest.status == 200 ) {
+      // 200 means "OK"
+     marctags = document.getElementsByTagName("MARC");
+      for ( i = 0; i < marctags.length; i++ ) {
+        dataField = marctags.item(i).getAttribute('dataField');
+        marcItems = getElementsByAttribute( MARCRequest.responseXML, 'datafield', 'tag', dataField );
+
+
+        buildSearchString = ( marctags[i].hasAttribute( 'searchfield' ) ? true : false );
+	     		itemString = '';	
+		
+        for ( j = 0; j < marcItems.length; j++ ) {
+
+          nextItem = getElementsByAttribute( marcItems[j], 'subfield', 'code', ( marctags[i].hasAttribute('subfield') ? marctags[i].getAttribute('subfield') : '*' ) );
+
+
+
+          for ( k = 0; k < nextItem.length; k++ ) {
+
+			if ( buildSearchString ) {
+			
+			  itemString += '<a title="Perform a subject search" href="../xml/rresult.xml?rt=' + marctags[i].getAttribute('searchfield') + '&tp=' + marctags[i].getAttribute('searchfield') + '&t=';
+  
+              for ( l = 0; l <= k; l++ ) {
+                itemString += nextItem[l].firstChild.textContent + '%20'; // it's ok to have a space at the end.
+    
+              }
+              itemString += '&l=1&d=0&f=">';
+			}
+			itemString += nextItem[k].firstChild.textContent
+			if ( buildSearchString ) {
+			  itemString += '</a>';
+			}
+
+		    if ( k < nextItem.length - 1) {
+              itemString += ' ' + marctags[i].getAttribute('separator') + ' ';
+            } else {
+			  if ( marctags[i].hasAttribute( 'newline' ) ) {
+			    if ( marctags[i].getAttribute( 'newline' ) == 'no' ){
+			      itemString += ' ';
+			    } else {
+			      itemString += '<br />';
+			    }
+			  } else {
+                itemString += '<br />';
+              }          
+            }
+		    marctags[i].innerHTML += itemString;
+		    itemString = '';
+            
+          }
+          
+        } // for j
+        reWhiteSpace = new RegExp(/^\s+$/);
+
+        if (reWhiteSpace.test(marctags[i].parentNode.textContent)) {
+          marctags[i].parentNode.parentNode.style.display = 'none';
+
+        }
+
+	  }
+
+    } 
+
+  } 
+
+}
+
+function createSearchLink ( searchType, subFieldList, currentSubField ) {
+  searchLink = '<a href="../xml/rresult.xml?rt=' + searchType + '&tp=' + searchType;
+  
+  for ( i = 0; i < currentSubField; i++ ) {
+    searchLink += subFieldList[i].firstChild.textContent + '%20'; // it's ok to have a space at the end.
+    
+  }
+  searchLink += '&l=1&d=0&f=">';
+  return searchLink;
+}
+
+/**
+ *  Cross-browser funciton to apply XSLT stylesheet to
+ *  an XML document object.
+ */ 
+function transformXSLT( XSLStyleSheet, XMLData, InsertElementID) {
+  if (window.ActiveXObject) {
+    //Code for internet explorer
+    TransformDoc = XMLData.transformNode(XSLStyleSheet);
+    document.getElementById(InsertElementID).innerHTML = TransformDoc;
+  }
+  else if (document.implementation && document.implementation.createDocument) {
+    //Code for mozilla
+    XSLTProcessor = new XSLTProcessor();
+    XSLTProcessor.importStylesheet(XSLStyleSheet);
+    TransformDoc = XSLTProcessor.transformToFragment(XMLData, document);
+    document.getElementById(InsertElementID).appendChild(TransformDoc);
+  }
+  else {
+    return false;
+  }
+
+
+}
+
+function getElementsByAttribute(oElm, strTagName, strAttributeName, strAttributeValue){
+  var arrElements = (strTagName == "*" && oElm.all)? oElm.all : oElm.getElementsByTagName(strTagName);
+  var arrReturnElements = new Array();
+  var oAttributeValue = (typeof strAttributeValue != "undefined")? new RegExp("(^|\\s)" + strAttributeValue + "(\\s|$)", "i") : null;
+  var oCurrent;
+  var oAttribute;
+  for(var i=0; i<arrElements.length; i++){
+    oCurrent = arrElements[i];
+    oAttribute = oCurrent.getAttribute && oCurrent.getAttribute(strAttributeName);
+    if(typeof oAttribute == "string" && oAttribute.length > 0){
+      if(typeof strAttributeValue == "undefined" || (oAttributeValue && oAttributeValue.test(oAttribute))){
+        arrReturnElements.push(oCurrent);
+      }
+    }
+  }
+  return arrReturnElements;
+}

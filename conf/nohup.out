@@ -1,0 +1,56 @@
+Found database: evergreen
+17:39:21-03/06 [server] Adding dynamic listener on localhost:2210 id=0
+17:39:21-03/06 [server] Starting server simple2zoom pid=24854
+17:41:48-03/06 simple2zoom(1) [session] Session - OK 1 tcp:127.0.0.1 24927
+17:41:48-03/06 simple2zoom(1) [request] Auth none
+17:41:48-03/06 simple2zoom(1) [request] Init OK - ID:81 Name:YAZ Version:3.0.38
+search: translated '@attrset Bib-1 potter' to 'potter'
+17:42:33-03/06 simple2zoom(1) [request] Search evergreen ERROR 100 1 1+0 RPN @attrset Bib-1 potter
+search: translated '@attrset Bib-1 potter' to 'potter'
+17:42:52-03/06 simple2zoom(1) [request] Search evergreen ERROR 100 2 1+0 RPN @attrset Bib-1 potter
+17:42:54-03/06 simple2zoom(1) [session] Connection closed by client
+17:44:01-03/06 simple2zoom(2) [session] Session - OK 2 tcp:127.0.0.1 24947
+17:44:01-03/06 simple2zoom(2) [request] Auth none
+17:44:01-03/06 simple2zoom(2) [request] Init OK - ID:81 Name:YAZ Version:3.0.38
+search: translated '@attrset Bib-1 @attr 1=4 potter' to 'title = potter'
+17:45:20-03/06 simple2zoom(2) [request] Search evergreen ERROR 100 1 1+0 RPN @attrset Bib-1 @attr 1=4 potter
+search: translated '@attrset Bib-1 potter' to 'potter'
+17:46:35-03/06 simple2zoom(2) [request] Search evergreen ERROR 100 2 1+0 RPN @attrset Bib-1 potter
+17:48:16-03/06 simple2zoom(2) [session] Connection closed by client
+17:49:25-03/06 simple2zoom(3) [session] Session - OK 3 tcp:127.0.0.1 24999
+17:49:25-03/06 simple2zoom(3) [request] Auth none
+17:49:25-03/06 simple2zoom(3) [request] Init OK - ID:81 Name:YAZ Version:3.0.38
+search: translated '@attrset Bib-1 @attr 1=4 the' to 'title = the'
+17:49:45-03/06 simple2zoom(3) [request] Search evergreen ERROR 100 1 1+0 RPN @attrset Bib-1 @attr 1=4 the
+17:50:06-03/06 simple2zoom(3) [session] Connection closed by client
+17:52:34-03/06 simple2zoom(4) [session] Session - OK 4 tcp:127.0.0.1 25084
+17:52:34-03/06 simple2zoom(4) [request] Auth none
+17:52:34-03/06 simple2zoom(4) [request] Init OK - ID:81 Name:YAZ Version:3.0.38
+search: translated '@attrset Bib-1 @attr 1=4 potter' to 'title = potter'
+17:52:50-03/06 simple2zoom(4) [request] Search evergreen ERROR 100 1 1+0 RPN @attrset Bib-1 @attr 1=4 potter
+17:52:59-03/06 simple2zoom(4) [session] Connection closed by client
+17:56:57-03/06 [server] Shutting down listener.
+Found database: evergreen
+17:57:06-03/06 [server] Adding dynamic listener on localhost:2210 id=0
+17:57:06-03/06 [server] Starting server simple2zoom pid=25187
+17:57:18-03/06 simple2zoom(1) [session] Session - OK 1 tcp:127.0.0.1 25194
+17:57:18-03/06 simple2zoom(1) [request] Auth none
+17:57:18-03/06 simple2zoom(1) [request] Init OK - ID:81 Name:YAZ Version:3.0.38
+search: translated '@attrset Bib-1 @attr 1=4 potter' to 'title = potter'
+17:57:24-03/06 simple2zoom(1) [request] Search evergreen ERROR 100 1 1+0 RPN @attrset Bib-1 @attr 1=4 potter
+search: translated '@attrset Bib-1 @attr 1=4 potter' to 'title = potter'
+17:57:33-03/06 simple2zoom(1) [request] Search evergreen ERROR 100 2 1+0 RPN @attrset Bib-1 @attr 1=4 potter
+search: translated '@attrset Bib-1 @attr 1=4 the' to 'title = the'
+17:57:37-03/06 simple2zoom(1) [request] Search evergreen ERROR 100 3 1+0 RPN @attrset Bib-1 @attr 1=4 the
+17:57:40-03/06 simple2zoom(1) [session] Connection closed by client
+14:11:01-05/06 simple2zoom(2) [session] Session - OK 2 tcp:127.0.0.1 26911
+14:11:01-05/06 simple2zoom(2) [request] Auth none
+14:11:01-05/06 simple2zoom(2) [request] Init OK - ID:81 Name:YAZ Version:3.0.38
+search: translated '@attrset Bib-1 stuff' to 'stuff'
+14:11:29-05/06 simple2zoom(2) [request] Search evergreen ERROR 100 1 1+0 RPN @attrset Bib-1 stuff
+search: translated '@attrset Bib-1 stuff' to 'stuff'
+14:12:01-05/06 simple2zoom(2) [request] Search evergreen ERROR 100 2 1+0 RPN @attrset Bib-1 stuff
+search: translated '@attrset Bib-1 stuff' to 'stuff'
+14:13:06-05/06 simple2zoom(2) [request] Search evergreen ERROR 100 3 1+0 RPN @attrset Bib-1 stuff
+14:13:12-05/06 simple2zoom(2) [session] Connection closed by client
+23:22:20-05/06 [server] Shutting down listener.

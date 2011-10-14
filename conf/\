@@ -1,0 +1,9 @@
+#!/bin/bash
+#----------------------------------------------------------------
+#emails the latest overdue.xml file notices to the circ staff.  This includes notices for patron's without an email
+#---------------------------------------------
+for attachment in $(find /openils/var/data/overdue -name overdue.????-??-??.xml -type f -mtime 0 -print);
+do
+	echo "Overdue.xml files attached" | mutt -s "Overdue xml files" -a $attachment circdesk@upei.ca ppound@upei.ca fgjohnson@upei.ca 
+done
+#find /openils/var/data/overdue -name overdue.????-??-??.xml -type f -mtime +7 -print | xargs /bin/rm -f;

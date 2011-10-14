@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/repos/evergreen/!svn/ver/57/var/web/opac/skin/roblib/xml/myopac
+END
+myopac_holds.xml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/evergreen/!svn/ver/57/var/web/opac/skin/roblib/xml/myopac/myopac_holds.xml
+END
+myopac_summary.xml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/evergreen/!svn/ver/57/var/web/opac/skin/roblib/xml/myopac/myopac_summary.xml
+END
+myopac_prefs.xml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/evergreen/!svn/ver/57/var/web/opac/skin/roblib/xml/myopac/myopac_prefs.xml
+END
+myopac_fines.xml
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/repos/evergreen/!svn/ver/57/var/web/opac/skin/roblib/xml/myopac/myopac_fines.xml
+END
+myopac_checked.xml
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/evergreen/!svn/ver/57/var/web/opac/skin/roblib/xml/myopac/myopac_checked.xml
+END
+myopac_bookbags.xml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/evergreen/!svn/ver/57/var/web/opac/skin/roblib/xml/myopac/myopac_bookbags.xml
+END

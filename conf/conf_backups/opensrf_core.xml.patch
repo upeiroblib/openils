@@ -1,0 +1,43 @@
+Index: opensrf_core.xml.example
+===================================================================
+--- opensrf_core.xml	(.../rel_1_4_0_7/Open-ILS/examples/opensrf_core.xml.example)	(revision 15202)
++++ opensrf_core.xml	(.../rel_1_6_0_0/Open-ILS/examples/opensrf_core.xml.example)	(revision 15202)
+@@ -20,11 +20,13 @@
+         <services>
+           <service>opensrf.math</service>
+           <service>open-ils.actor</service>
++          <service>open-ils.acq</service>
+           <service>open-ils.auth</service>
+           <service>open-ils.cat</service>
+           <service>open-ils.circ</service>
+           <service>open-ils.collections</service>
+           <service>open-ils.fielder</service>
++          <service>open-ils.pcrud</service>
+           <service>open-ils.permacrud</service>
+           <service>open-ils.reporter</service>
+           <service>open-ils.search</service>
+@@ -134,7 +136,7 @@
+         <logfile>syslog</logfile>
+         <syslog>local2</syslog>
+       -->
+-      <loglevel>3</loglevel>
++      <loglevel>2</loglevel>
+     </router>
+     <router>
+       <!-- private router -->
+@@ -159,7 +161,7 @@
+         <logfile>syslog</logfile>
+         <syslog>local2</syslog>
+       -->
+-      <loglevel>3</loglevel>
++      <loglevel>2</loglevel>
+     </router>
+   </routers>
+   <!-- ======================================================================================== -->
+
+Property changes on: opensrf_core.xml.example
+___________________________________________________________________
+Name: svn:mergeinfo
+   - 
+   + /trunk/Open-ILS/examples/opensrf_core.xml.example.multidomain:10932,10935
+

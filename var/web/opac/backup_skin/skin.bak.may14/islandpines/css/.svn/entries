@@ -1,0 +1,41 @@
+8
+
+dir
+9740
+svn://svn.open-ils.org/ILS/branches/rel_1_2_2/Open-ILS/web/opac/skin/default/css
+svn://svn.open-ils.org/ILS
+
+
+
+2008-03-12T19:02:22.477893Z
+8994
+erickson
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+dcc99617-32d9-48b4-a31d-7c20da2025e4
+
+layout.css
+file
+
+
+
+
+2008-05-31T01:06:12.000000Z
+1de05d86eb60a1d978d9dc97ee083f42
+2008-03-12T19:02:22.477893Z
+8994
+erickson
+has-props
+

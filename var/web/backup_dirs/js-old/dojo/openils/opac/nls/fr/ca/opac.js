@@ -1,0 +1,20 @@
+{
+    "ONLINE_VOLUMES": "Online volumes", 
+    "CREATED_MFHD_RECORD": "Created MFHD record for ${0}", 
+    "EDIT_PROPERTIES": "Edit Propeties", 
+    "HOLDINGS_TABLE_CAPTION": "Holdings summary (${0})", 
+    "CURRENT_INDEXES": "Current indexes", 
+    "CURRENT_HOLDINGS": "Current volume", 
+    "INCOMPLETE_VOLUMES": "Incomplete volumes", 
+    "EDIT_MFHD_MENU": "Edit Holdings", 
+    "INDEXES": "Previous indexes", 
+    "HOLDINGS": "Previous volumes", 
+    "EDIT_MFHD_RECORD": "Edit Record", 
+    "SUPPLEMENTS": "Previous supplements", 
+    "CREATE_MFHD": "Add MFHD Record", 
+    "SAVE_MFHD_LABEL": "Save MFHD", 
+    "CURRENT_SUPPLEMENTS": "Current supplements", 
+    "MISSING_VOLUMES": "Missing volumes", 
+    "DELETE_MFHD": "Delete Record", 
+    "DELETED_MFHD_RECORD": "Deleted MFHD record ${0}"
+}

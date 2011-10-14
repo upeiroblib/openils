@@ -1,0 +1,252 @@
+
+<abbr class="unapi-id" title='tag:<!--#echo var="HTTP_HOST"-->,<!--#echo var="OILS_TIME_YEAR"-->:biblio-record_entry/<!--#echo var="OILS_OPAC_RID"-->'></abbr>
+<!-- This holds the record summary information -->
+<div>
+	<!-- temporary hack to give IE somewhere to put these things; should just rip out from rdetail.js 
+		See https://bugs.launchpad.net/evergreen/+bug/532217 -->
+
+	<span class='hide_me' id='rdetail_title'></span>
+
+	<table id='rdetail_details_table'>
+		<tbody id='rdetail_details_tbody'>
+
+			<tr>
+				<td id='rdetail_image_cell' rowspan='30'>
+					<a id='rdetail_img_link'>
+						<img style='border: none;' id='rdetail_image' 
+                            onerror='
+                                hideMe($("rdetail.jacket_attrib_div"));
+                                hideMe($("rdetail_img_link"));'/>
+					</a>
+                    <!-- vendor attribution link -->
+                    <div class='jacket_attrib hide_me' id='rdetail.jacket_attrib_div'>
+                        <div>&opac.image_provided;</div>
+                        <div><a target='_blank' href='&vendor.base_link;' 
+                            class='classic_link' id='rdetail.jacket_attrib_link'>&vendor.name;</a></div>
+                    </div>
+				</td>
+				<td nowrap='nowrap' class='rdetail_desc'>&common.title;</td>		
+                <!-- *** Example of how to use the openils.BibTemplate infrastructure to augment the stock
+                     *** summary screen with more and/or different information.  In this case, the raw MARC 245. -->
+                <td type='opac/slot-data' query='datafield[tag="245"]' class='rdetail_item'>
+<!--                    <script type='opac/slot-format'><![CDATA[
+                        var out = '';
+                        var list = dojo.query( 'subfield', item );
+                        for (var i = 0; i < list.length; i++) {
+                            out += BT.textContent(list[i]) + ' ';
+                        }
+                        return out;
+                    ]]></script>
+-->
+
+<script type='opac/slot-format'><![CDATA[
+var rdetail_bib_title = BT.textContent(item);
+var title_node = dojo.query('head title');
+dojo.addOnLoad(function() {dojo.place('<title>' + rdetail_bib_title + '</title>', title_node[0], 'replace');});
+return '<span>' + rdetail_bib_title + '</span><br/>';
+]]></script>
+
+                </td>
+			</tr>
+
+			<tr>
+				<td nowrap='nowrap' class='rdetail_desc'>&common.author;</td>		
+				<td class='rdetail_item'>
+					<a title='&rdetail.author.search;' id='rdetail_author'> </a>
+				</td>
+			</tr>
+
+			<tr>
+				<td nowrap='nowrap' class='rdetail_desc'>&common.isbn;</td>			
+				<td class='rdetail_item' id='rdetail_isbn'> </td>
+			</tr>
+
+			<tr>
+				<td nowrap='nowrap' class='rdetail_desc'>&common.edition;</td>		
+				<td class='rdetail_item' id='rdetail_edition'> </td>
+			</tr>
+
+			<tr>
+				<td nowrap='nowrap' class='rdetail_desc'>&common.pubdate;</td>		
+				<td class='rdetail_item' id='rdetail_pubdate'> </td>
+			</tr>
+
+			<tr>
+				<td nowrap='nowrap' class='rdetail_desc'>&common.publisher;</td>		
+				<td class='rdetail_item' id='rdetail_publisher'> </td>
+			</tr>
+
+<!-- redmine #5078  -->
+<tr>
+    <td nowrap='nowrap' class='rdetail_desc'>&common.physical;</td>
+    <td  type='opac/slot-data' query='datafield[tag=300]' class='rdetail_item' id='rdetail_physical_desc'>
+        <script type='opac/slot-format'><![CDATA[
+dojo.query('#tag300').removeClass('hide_me');
+return '<span>' + BT.textContent(item) + '</span><br/>';
+]]>
+        </script>
+    </td>
+</tr>
+
+
+			<tr>
+				<td nowrap='nowrap' class='rdetail_desc'>&common.format;</td>			
+				<td class='rdetail_item'>
+					<img id='rdetail_tor_pic' class='tor_pic' />
+					<span id='rdetail_tor' style='padding-left: 5px;'> </span>
+				</td>
+			</tr>
+
+			<tr>
+				<td nowrap='nowrap' class='rdetail_desc'>&rdetail.detailMain.abstract;</td>	
+				<td class='rdetail_item' id='rdetail_abstract'> </td>
+			</tr>
+
+            <!-- *** Example of how to use the openils.BibTemplate infrastructure to augment the stock
+                 *** summary screen with complex information, such as new search links on subjects. -->
+            <tr>
+                <td nowrap='nowrap' class='rdetail_desc'>&rdetail.summary.subjects;</td>
+                <td type='opac/slot-data' query='datafield[tag="650"]' class='rdetail_item'>
+                    <script type='opac/slot-format'><![CDATA[
+                        var cgi = new CGI();
+                        var other_params = [ 'd', 'l', 'r', 'av', 's', 'sd', 'ol' ];
+                        var total = '';
+                        var output = [];
+                        var list = dojo.query( 'subfield', item );
+                        for (var i =0; i < list.length; i++) {
+                            total += BT.textContent(list[i]) + ' ';
+                            var current = '<a href="rresult.xml?rt=subject&tp=subject&t=' + total;
+                            for (var p in other_params) {
+                                if (cgi.param(other_params[p]))
+                                    current += '&' + other_params[p] + '=' + cgi.param(other_params[p]);
+                            }
+                            current += '">' + BT.textContent(list[i]) + '</a>'
+                            output.push(current);
+                        }
+                        return '<span>' + output.join(' &#x2d;&#x2d; ') + '</span><br/>';
+                    ]]></script>
+                </td>
+            </tr>
+
+<!-- redmine #5067  -->
+<tr class='hide_me' id='rdetail_online_row'>
+                <!-- *** Example of how to use the openils.BibTemplate infrastructure to augment the stock
+                     *** summary screen with complex information, such as location-specific URIs (856$9). -->
+                
+                <td height='60' nowrap='nowrap' class='rdetail_desc'>&rdetail.summary.online;
+                        <span class='hide_me' type='opac/slot-data' query='datafield[tag=856] subfield[code=9]'>
+                        <script type='opac/slot-format'><![CDATA[ 
+                                // There exists at least one localized URI. Clear all links.
+                                dojo.query('*:not([type^=opac])', 'rdetail_online').orphan();
+                                return '';
+                                ]]></script>
+                                </span>
+                </td>
+                <td height='60' BGCOLOR='#FFFFDF' class='rdetail_item' id='rdetail_online' type='opac/slot-data' query='volumes volume uris uri' join=", ">
+                <script type='opac/slot-format'><![CDATA[
+                var link = '<a href="' + item.getAttribute('href') + '">' + item.getAttribute('label') + '</a>';
+                        if (item.getAttribute('use_restriction'))
+                                link += ' (Use restriction: ' + item.getAttribute('use_restriction') + ')';
+                                return link;
+                                ]]></script>
+                </td>
+        </tr>
+
+			<tr name="serial_holdings_label"
+				class="result_table_title_cell hide_me">
+                <td class="rdetail_desc">&rdetail.summary.issues_held;</td>
+                <td templated="true" type="opac/slot-data"
+                    query="datafield[tag='901'] subfield[code='c']"
+                    class="rdetail_item">
+                    ${holdingsStatement}
+					<span class="hide_me" name="holdingsStatement" type="opac/template-value"><![CDATA[
+                        if (fetchOrgSettingDefault(
+                            getLocation(),
+                            "opac.fully_compressed_serial_holdings"
+                        )) {
+                            var bibid = BT.textContent(item_list[0]);
+                            var blob = fieldmapper.standardRequest(
+                                ["open-ils.serial",
+                                    "open-ils.serial.bib.summary_statements"],
+                                [bibid, {
+                                    "orgid": getLocation(), "depth": getDepth()
+                                }]
+                            );
+
+                            var fake = dojo.create("td");
+                            var something = false;
+
+                            for (var i in blob) {
+                                if (!blob[i].length) continue;
+                                if (something) dojo.create("br", null, fake);
+                                something = true;
+
+                                var a = dojo.create(
+                                    "a", {
+                                        "innerHTML": "[+]",
+                                        "href": "javascript:void(0);",
+                                        "onclick":
+                                            "rdetailDrawExpandedHoldings(this,"+
+                                            bibid + ",'" + i + "');",
+                                        "style": {"marginRight": "1.5em"}
+                                    }, fake
+                                );
+                                dojo.create(
+                                    "span", {
+                                        "innerHTML": blob[i].join(", ")
+                                    }, fake
+                                );
+                                dojo.create(
+                                    "span", {"id": "holding_type_" + i}, fake
+                                );
+                            }
+
+                            if (something)
+                                unHideMe(slot.parentNode);
+
+                            return fake.innerHTML;
+                        } else {
+                            return "";
+                        }
+					]]></span>
+				</td>
+			</tr>
+
+		</tbody>
+	</table>
+
+	<!-- Empty span used for creating unAPI links -->
+	<abbr name="unapi" class="unapi-id">
+		<!-- unAPI URI goes here -->
+	</abbr>
+
+	<script language='javascript' type='text/javascript'><![CDATA[
+
+		config.ids.rdetail.details_body		= 'rdetail_details_body'; 
+		config.ids.rdetail.title				= 'rdetail_title';
+		config.ids.rdetail.author				= 'rdetail_author';
+		config.ids.rdetail.isbn					= 'rdetail_isbn';
+		config.ids.rdetail.edition				= 'rdetail_edition';
+		config.ids.rdetail.pubdate				= 'rdetail_pubdate';
+		config.ids.rdetail.publisher			= 'rdetail_publisher';
+		config.ids.rdetail.tor					= 'rdetail_tor';
+		config.ids.rdetail.abstr				= 'rdetail_abstract';
+		config.ids.rdetail.image				= 'rdetail_image';
+		config.ids.rdetail.tor_pic				= 'rdetail_tor_pic';
+
+        dojo.addOnLoad(function() {
+            setTimeout( function () {
+                var here = findOrgUnit(getLocation());
+                if (getDepth() > 0 || getDepth === 0 ) {
+                    while (getDepth() < findOrgDepth(here))
+                        here = findOrgUnit( here.parent_ou() );
+                }
+    
+                dojo.require('openils.BibTemplate');
+                new openils.BibTemplate({ record : new CGI().param('r'), org_unit : here.shortname() }).render();
+            }, 0);
+        });
+	]]></script>
+
+</div> <!-- details_body -->
+

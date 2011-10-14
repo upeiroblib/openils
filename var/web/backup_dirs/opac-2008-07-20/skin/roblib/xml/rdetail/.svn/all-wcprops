@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/repos/evergreen/!svn/ver/57/var/web/opac/skin/roblib/xml/rdetail
+END
+rdetail_altcanvas.xml
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/repos/evergreen/!svn/ver/57/var/web/opac/skin/roblib/xml/rdetail/rdetail_altcanvas.xml
+END
+rdetail_summary.xml
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/repos/evergreen/!svn/ver/57/var/web/opac/skin/roblib/xml/rdetail/rdetail_summary.xml
+END
+rdetail_cn_details.xml
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/repos/evergreen/!svn/ver/57/var/web/opac/skin/roblib/xml/rdetail/rdetail_cn_details.xml
+END
+rdetail_copyinfo.xml
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/repos/evergreen/!svn/ver/57/var/web/opac/skin/roblib/xml/rdetail/rdetail_copyinfo.xml
+END
+rdetail_extras.xml
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/repos/evergreen/!svn/ver/57/var/web/opac/skin/roblib/xml/rdetail/rdetail_extras.xml
+END
